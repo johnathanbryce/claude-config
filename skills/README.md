@@ -15,6 +15,7 @@ Reference for humans. Claude discovers skills by looking for subdirectories that
 | `/explain` | End-of-build report: what was built and why, ranked by importance. Report, not a review. | No — chat only | — |
 | `/diagram` | Image or description → Mermaid in markdown. Inserts into a named `.md` or outputs to chat. | Yes (edits target `.md`) | `[description and/or target .md — or attach an image]` |
 | `/onboard` | New codebase → setup runbook *I* run, ranked reading order, domain glossary, who-to-ask map, ship process, plus a full health + dependency audit. **Strictly read-only — never installs, builds, or starts anything.** | Yes — to `~/onboarding/<repo>/` | `[path] [quick] [no-deps]` |
+| `/ac-pr` | AlgaeCal end-of-branch PR audit: branch name, commit-message audit **plus the git commands to fix them**, the 500-line limit and its exceptions, a review pass against their six criteria, and the PR body in their template. | No — chat only | `[base branch] [nobody] [quick]` |
 
 ## The intended order
 
@@ -56,3 +57,21 @@ The five core skills chain across the life of a feature:
   of the skill, not a limitation to work around.
 - **`scaffold` as an argument to `/unit-tests`** means the same thing it means in `/scaffold`: named
   stubs for me to fill in, plus exactly one implemented case per file as a pattern anchor.
+
+## The AlgaeCal skill
+
+`/ac-pr` encodes AlgaeCal's dev handbook (git conventions, PR template and size limit, their six
+review criteria). It **defers to the repo** — an existing `CLAUDE.md`, commitlint config, or ESLint
+config outranks the handbook, and the skill says which file overrode it.
+
+Neither reports lint-level findings. SonarQube and ESLint own indent width, BEM spelling, and
+semicolons; these skills cover what a human reviewer catches and a linter can't.
+
+One skill, run once at the end of a branch. Commit-message checking folded in rather than living in a
+separate pre-commit skill: the format is one line and John should write it himself, so the useful moment
+is catching a genuinely bad message before the PR — with the exact `--amend` / `rebase -i` commands
+spelled out, since that syntax is the part nobody remembers.
+
+**It never rewrites history itself.** It reports the commands; John runs them.
+
+Handbook detail lives in `ac-pr/references/handbook.md`.
