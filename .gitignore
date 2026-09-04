@@ -44,4 +44,4 @@ projects/*/*
 projects/
 settings.json
 .DS_Store
-pull-brief/
+/pull-brief/
