@@ -31,6 +31,9 @@ branching, data transformation, calculations, request handlers, hooks with state
 Skip without reading, and list in the report: existing test files, `*.d.ts` and type-only
 files, `*.stories.*`, styles, config, generated code, and components that are markup only.
 
+If more than six candidates remain, stop before reading any of them: list them ranked by how much
+logic each holds and ask which to test. A wide PR is the one way this skill can run long.
+
 ## Reading cap
 
 Read only:

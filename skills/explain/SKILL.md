@@ -1,6 +1,7 @@
 ---
 description: End-of-build report — explain everything that was just built or changed and why, ranked by importance. Use at the end of an AI-driven build/pipeline when asked to "explain what you did", "summarize the changes", or "walk me through what was built".
 allowed-tools: Read, Grep, Glob, Bash(git diff:*), Bash(git log:*), Bash(git status:*)
+disallowed-tools: Task, WebSearch, WebFetch
 ---
 
 # Explain

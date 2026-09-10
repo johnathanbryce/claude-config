@@ -13,7 +13,7 @@ Base branch is `main` unless `$ARGUMENTS` names another. AlgaeCal cuts feature b
 
 The repo outranks this skill. Before checking anything, look for:
 
-- `CLAUDE.md`, `CONTRIBUTING.md`, `README.md`
+- `CLAUDE.md`, `CONTRIBUTING.md`
 - `commitlint.config.*`, `.husky/`
 - `.eslintrc*` / `eslint.config.*`, `.prettierrc*`, `sonar-project.properties`, `.editorconfig`
 - Bitbucket PR template (`.bitbucket/`, `pull_request_template.md`)
