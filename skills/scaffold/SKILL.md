@@ -1,6 +1,6 @@
 ---
 description: Scaffold the mechanical structure for a feature or project — files, directories, imports, UI markup, config, stubs — while leaving ALL logic as TODO stubs for John to implement. Use when asked to "scaffold", "set up the structure/boilerplate for", or "stub out" a feature or project.
-argument-hint: "[light|medium|heavy] what to scaffold"
+argument-hint: "[light|medium|heavy] what to scaffold  — MANUAL: pick model + effort in /model BEFORE running; this skill never sets them"
 allowed-tools: Read, Glob, Grep, Write, Bash(mkdir:*)
 disallowed-tools: Task, WebSearch, WebFetch
 ---

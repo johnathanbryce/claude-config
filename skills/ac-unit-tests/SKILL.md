@@ -3,7 +3,6 @@ description: Cheap unit tests for an AlgaeCal PR — writes Jest + React Testing
 argument-hint: "[base branch, default main]"
 allowed-tools: Read, Grep, Glob, Write, Edit, Bash(git status:*), Bash(git diff:*), Bash(git merge-base:*), Bash(git rev-parse:*), Bash(npx jest:*)
 disallowed-tools: Task, WebSearch, WebFetch
-effort: medium
 ---
 
 Write unit tests for the work on this branch. Base branch: $ARGUMENTS (default `main`).
