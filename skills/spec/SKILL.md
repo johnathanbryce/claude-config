@@ -2,13 +2,14 @@
 description: Turn a rough feature idea into a structured one-page spec — problem, goals/non-goals, requirements, interface sketch, edge cases, open questions. Use when scoping a feature before code exists, or when a fuzzy idea needs to become buildable scope.
 argument-hint: "[rough feature idea]"
 allowed-tools: Read, Grep, Glob
+disallowed-tools: Task, WebSearch, WebFetch
 ---
 
 Turn this rough idea into a one-page spec: $ARGUMENTS
 
 ## Before writing
 
-- If the idea touches an existing codebase, skim the relevant code first — a spec that contradicts the current architecture is worse than no spec.
+- If the idea touches an existing codebase, skim the relevant code first — a spec that contradicts the current architecture is worse than no spec. Skim means a handful of files (at most five); never crawl the repo, and never delegate the skim to a subagent.
 - If the idea is too vague to scope (no identifiable user or behavior), ask me at most 2-3 clarifying questions before writing. Otherwise write first and park uncertainty in Open Questions.
 
 ## The spec — one page, these sections, in order

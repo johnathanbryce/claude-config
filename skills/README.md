@@ -16,6 +16,7 @@ Reference for humans. Claude discovers skills by looking for subdirectories that
 | `/diagram` | Image or description → Mermaid in markdown. Inserts into a named `.md` or outputs to chat. | Yes (edits target `.md`) | `[description and/or target .md — or attach an image]` |
 | `/onboard` | New codebase → setup runbook *I* run, ranked reading order, domain glossary, who-to-ask map, ship process, plus a full health + dependency audit. **Strictly read-only — never installs, builds, or starts anything.** | Yes — to `~/onboarding/<repo>/` | `[path] [quick] [no-deps]` |
 | `/ac-pr` | AlgaeCal end-of-branch PR audit: branch name, commit-message audit **plus the git commands to fix them**, the 500-line limit and its exceptions, a review pass against their six criteria, and the PR body in their template. | No — chat only | `[base branch] [nobody] [quick]` |
+| `/ac-unit-tests` | AlgaeCal-only, credit-cheap `/unit-tests`: fixed TypeScript/Jest stack, branch diff vs base, hard reading cap, runs the new tests once, no fix loop, no subagents. | Yes | `[base branch, default main]` |
 
 ## The intended order
 

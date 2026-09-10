@@ -2,6 +2,7 @@
 description: End-of-branch audit for an AlgaeCal PR — checks branch name, audits every commit message against their format and hands back the exact git commands to fix the ones worth fixing, checks the 500-line limit and its exceptions, runs a review pass against AlgaeCal's six review criteria, and writes the PR body in their template. Use before opening a PR in Bitbucket on any AlgaeCal repo.
 argument-hint: "[base branch, default main] [nobody to skip PR body] [quick]"
 allowed-tools: Read, Grep, Glob, Bash(git status:*), Bash(git diff:*), Bash(git log:*), Bash(git branch:*), Bash(git merge-base:*), Bash(git rev-parse:*), Bash(git ls-files:*)
+disallowed-tools: Task, WebSearch, WebFetch
 ---
 
 Audit the current branch before opening a Bitbucket PR. Read `references/handbook.md` first — it holds AlgaeCal's documented standards.
