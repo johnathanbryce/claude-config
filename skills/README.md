@@ -11,7 +11,8 @@ Reference for humans. Claude discovers skills by looking for subdirectories that
 | `/scaffold` | Mechanical structure only: files, dirs, imports, markup, config. All logic lands as `TODO(John)` stubs. | Yes | `[light\|medium\|heavy] what to scaffold` |
 | `/unit-tests` | Tests for uncommitted changes, in whatever language and runner the repo already uses. Runs them to green by default. | Yes | `[language] [scaffold]` |
 | `/diff-review` | Reviews working-tree changes against my standards. Correctness outranks everything. Reports only — never edits. | No | `[optional path to scope]` |
-| `/docs` | Feature doc in `docs/` from the branch diff, or a PR description. | Yes | `[pending] [pr]` |
+| `/docs` | Feature doc in `docs/` from the branch diff. | Yes | `[pending]` |
+| `/pr-description` | PR title + body for the branch. Follows the repo's own PR template when there is one; offers to open the PR with `gh`. Never pushes. | Only a scratch body file | `[base branch] [draft] [nocreate]` |
 | `/explain` | End-of-build report: what was built and why, ranked by importance. Report, not a review. | No — chat only | — |
 | `/diagram` | Image or description → Mermaid in markdown. Inserts into a named `.md` or outputs to chat. | Yes (edits target `.md`) | `[description and/or target .md — or attach an image]` |
 | `/onboard` | New codebase → setup runbook *I* run, ranked reading order, domain glossary, who-to-ask map, ship process, plus a full health + dependency audit. **Strictly read-only — never installs, builds, or starts anything.** | Yes — to `~/onboarding/<repo>/` | `[path] [quick] [no-deps]` |
@@ -20,10 +21,10 @@ Reference for humans. Claude discovers skills by looking for subdirectories that
 
 ## The intended order
 
-The five core skills chain across the life of a feature:
+The core skills chain across the life of a feature:
 
 ```
-/spec  →  /scaffold  →  [John writes the logic]  →  /unit-tests  →  /diff-review  →  /docs
+/spec  →  /scaffold  →  [John writes the logic]  →  /unit-tests  →  /diff-review  →  /docs  →  /pr-description
 ```
 
 1. **`/spec`** before code exists. Its output is what `/scaffold` reads if no description is passed.
@@ -31,7 +32,10 @@ The five core skills chain across the life of a feature:
 3. **`/unit-tests`** and **`/diff-review`** both read uncommitted work, so they run *after* the logic
    is written and *before* the commit. Tests first: `/diff-review` is more useful when the tests
    already encode the intended behavior.
-4. **`/docs`** runs on finished work. `/docs pr` at PR time; bare `/docs` for a feature doc.
+4. **`/docs`** runs on finished work — the feature doc that outlives the PR.
+5. **`/pr-description`** at PR time, last. Reads the same branch diff and writes the title and body
+   a reviewer sees, then offers `gh pr create`. It never pushes: no upstream means it hands back the
+   `git push -u` command and stops.
 
 **Not in the chain:**
 
@@ -54,6 +58,9 @@ The five core skills chain across the life of a feature:
 - **`/onboard` vs `/audit`** — `/audit` asks "what is wrong with this codebase." `/onboard` asks "what
   do I need to understand, and who do I ask." `/onboard` contains the audit; `/audit` does not contain
   the orientation. On a repo I just joined, `/onboard` is the one to reach for.
+- **`/pr-description` vs `/ac-pr`** — same moment, different repos. `/ac-pr` is AlgaeCal: their PR
+  template, their six review criteria, Bitbucket, plus a branch-name and commit-message audit.
+  `/pr-description` is the generic GitHub one — write-up only, no audit, `gh` at the end.
 - **`/scaffold` never writes logic** — control flow, queries, transformations. That is the whole point
   of the skill, not a limitation to work around.
 - **`scaffold` as an argument to `/unit-tests`** means the same thing it means in `/scaffold`: named

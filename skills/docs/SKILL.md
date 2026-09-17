@@ -1,6 +1,6 @@
 ---
-description: Write documentation for the work on the current branch — analyzes the branch diff plus uncommitted changes and creates/updates a feature doc in the repo's docs/ directory, or produces a PR description with "pr". Use when finished work needs documentation or a PR write-up.
-argument-hint: "[pending] [pr]"
+description: Write documentation for the work on the current branch — analyzes the branch diff plus uncommitted changes and creates/updates a feature doc in the repo's docs/ directory. Use when finished work needs documentation. For a PR write-up use /pr-description.
+argument-hint: "[pending]"
 allowed-tools: Read, Grep, Glob, Write, Edit, Bash(git status:*), Bash(git diff:*), Bash(git log:*), Bash(git merge-base:*), Bash(git branch:*)
 ---
 
@@ -11,15 +11,14 @@ Document the work on this branch.
 $ARGUMENTS may contain, in any order:
 
 - `pending` — scope to uncommitted changes only. Default: the full branch — every commit since it diverged from the default branch (`git diff $(git merge-base <default-branch> HEAD)`) PLUS uncommitted changes. If currently ON the default branch, fall back to uncommitted changes only and say so in the report.
-- `pr` — produce a PR description instead of a feature doc.
 
 ## Process
 
 1. Establish scope per the arguments (use `git status --porcelain --untracked-files=all` for uncommitted work — untracked directories otherwise collapse to one line and their files are missed).
 2. Read every in-scope source file in full — documentation written from hunks alone is guesswork.
-3. Produce the artifact for the chosen mode below.
+3. Produce the feature doc.
 
-## Feature doc mode (default)
+## The feature doc
 
 - Location: the repo's `docs/` directory (create it if absent). One doc per feature/area, kebab-case filename.
 - **Update in place:** if a doc already covers the touched area, edit that doc — never create a parallel `-v2` file. Match the existing doc's structure and voice.
@@ -29,15 +28,6 @@ $ARGUMENTS may contain, in any order:
   3. Interface reference — endpoints/functions with inputs, outputs, and error responses.
   4. Behavior notes — edge cases, defaults, and decisions a user would otherwise discover the hard way.
   5. Known limitations / gotchas.
-
-## PR description mode (`pr`)
-
-Output to chat (for copy-paste), not to a file:
-
-1. **Summary** — the why and the what, two or three sentences.
-2. **Changes** — grouped by area, described at the behavior level.
-3. **How it was tested** — actual evidence (test runs, manual verification), never claims.
-4. **Notes for reviewers** — risk areas, decisions that deserve scrutiny, follow-ups deliberately left out.
 
 ## Hard rules
 

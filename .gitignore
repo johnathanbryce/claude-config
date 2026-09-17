@@ -24,11 +24,14 @@ backups/
 
 # Plugins are installed from their own sources, not vendored here
 plugins/
+skills/synced/
 
 # Machine-local bookkeeping
 .last-cleanup
 pull-brief/state/
 .claude/
+cache/
+plans/
 
 # ---------------------------------------------------------------------------
 # projects/ — per-project session transcripts (large, machine-local) are
