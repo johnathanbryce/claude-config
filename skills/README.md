@@ -7,8 +7,8 @@ Reference for humans. Claude discovers skills by looking for subdirectories that
 
 | Skill | Does | Writes files? | Arguments |
 |---|---|---|---|
-| `/spec` | Rough idea → one-page spec: problem, goals/non-goals, numbered requirements, interface sketch, edge cases, open questions. | No — chat only | `[rough feature idea]` |
-| `/scaffold` | Mechanical structure only: files, dirs, imports, markup, config. All logic lands as `TODO(John)` stubs. | Yes | `[light\|medium\|heavy] what to scaffold` |
+| `/spec` | Rough idea → one-page spec: problem, goals/non-goals, numbered requirements, interface sketch, edge cases, open questions. | Yes — `<slug>-spec.md` in a gitignored `.local/` if present, else repo root (flagged delete-before-push) | `[rough feature idea]` |
+| `/scaffold` | Mechanical structure only: files, dirs, imports, markup, config. All logic lands as `TODO(John)` stubs. Reads the `/spec` file; never writes tests. | Yes | `[light\|medium\|heavy] [spec.md] [description]` |
 | `/unit-tests` | Tests for uncommitted changes, in whatever language and runner the repo already uses. Runs them to green by default. | Yes | `[language] [scaffold]` |
 | `/diff-review` | Reviews working-tree changes against my standards. Correctness outranks everything. Reports only — never edits. | No | `[optional path to scope]` |
 | `/docs` | Feature doc in `docs/` from the branch diff. | Yes | `[pending]` |
@@ -27,7 +27,7 @@ The core skills chain across the life of a feature:
 /spec  →  /scaffold  →  [John writes the logic]  →  /unit-tests  →  /diff-review  →  /docs  →  /pr-description
 ```
 
-1. **`/spec`** before code exists. Its output is what `/scaffold` reads if no description is passed.
+1. **`/spec`** before code exists. It writes a `<slug>-spec.md`; pass that path to `/scaffold` or `/architect pre` (or let `/scaffold` read it from conversation context).
 2. **`/scaffold`** builds the skeleton. It deliberately stops at the logic — that gap is mine to fill.
 3. **`/unit-tests`** and **`/diff-review`** both read uncommitted work, so they run *after* the logic
    is written and *before* the commit. Tests first: `/diff-review` is more useful when the tests
