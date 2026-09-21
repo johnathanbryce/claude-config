@@ -1,5 +1,6 @@
 ---
-description: Produce a high-level architecture view — a Mermaid tech/infra flowchart plus key flows and gaps, written to a .md file and rendered to viewable SVG + PNG images. Two modes: `pre` turns a spec/idea into a PROPOSED target architecture before building; `post` reads what you built on the current branch and draws the AS-BUILT architecture. Use `pre` to plan a build fast (e.g. after /spec) and `post` to produce an architecture artifact alongside /docs when a feature is done. Unlike /diagram (faithful transcription of a source you provide), /architect reasons about the system and makes judgment calls it flags.
+description: >-
+  Produce a high-level architecture view — a Mermaid tech/infra flowchart plus key flows and gaps, written to a .md file and rendered to viewable SVG + PNG images. Two modes: `pre` turns a spec/idea into a PROPOSED target architecture before building; `post` reads what you built on the current branch and draws the AS-BUILT architecture. Use `pre` to plan a build fast (e.g. after /spec) and `post` to produce an architecture artifact alongside /docs when a feature is done. Unlike /diagram (faithful transcription of a source you provide), /architect reasons about the system and makes judgment calls it flags.
 argument-hint: "[pre|post] [app-flow|full-infra] [spec text or file — pre only; or an output dir/.md]"
 allowed-tools: Read, Grep, Glob, Write, Edit, Bash(git status:*), Bash(git diff:*), Bash(git log:*), Bash(git merge-base:*), Bash(git branch:*), Bash(mmdc:*), Bash(open:*), Bash(mkdir:*)
 ---
