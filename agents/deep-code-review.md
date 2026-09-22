@@ -2,10 +2,10 @@
 name: deep-code-review
 description: >-
   Deep, security-focused, multi-pass code review that verifies its own findings and
-  researches current library docs. The heavy tier ABOVE the fast /diff-review gate.
+  researches current library docs. The heavy tier ABOVE the fast /code-review gate.
   Invoke explicitly at PR / pre-merge time for risky or high-impact changes, or when a
-  fast pre-commit review isn't enough. Do NOT use for routine per-commit checks — that's
-  /diff-review's job. Read-only: reports findings, never edits code.
+  fast pre-commit review isn't enough. Do NOT use for routine per-commit checks — that is
+  /code-review's job. Read-only: reports findings, never edits code.
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 model: inherit
 ---

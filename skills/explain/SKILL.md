@@ -7,7 +7,7 @@ disallowed-tools: Task, WebSearch, WebFetch
 # Explain
 
 Orient John in a result he didn't write line by line. Chat only — never writes files.
-Report, not review: no fixes, no suggestions, no quality verdicts (that's `/diff-review`).
+Report, not review: no fixes, no suggestions, no quality verdicts (that's `/code-review`).
 
 ## Source of truth
 

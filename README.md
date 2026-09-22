@@ -13,7 +13,7 @@ that reference production infrastructure, plus personal career material.
 | Path | What it is |
 |---|---|
 | `settings.json` | Permissions allowlist, model, hooks, effort level |
-| `skills/` | Custom slash-command skills (`/spec`, `/audit`, `/diff-review`, `/architect`, …) |
+| `skills/` | Custom slash-command skills (`/spec`, `/onboard`, `/architect`, …) |
 | `agents/` | Custom subagent definitions (`deep-code-review`, `deps-auditor`) |
 | `hooks/` | Shell hooks — `pull-brief.sh` (SessionStart briefing), `secrets-guard.sh` |
 | `pull-brief/` | Allowlist + author identities for the pull-brief hook |

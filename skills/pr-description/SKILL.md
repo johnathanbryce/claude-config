@@ -1,5 +1,5 @@
 ---
-description: Write the title and body for a pull request covering the work on the current branch — reads the branch diff, follows the repo's own PR template when one exists, and offers to open the PR with gh. Succinct and behavior-level, never a narration of the diff. Use at PR time on any repo except AlgaeCal (use /ac-pr there).
+description: Write the title and body for a pull request covering the work on the current branch — reads the branch diff, follows the repo's own PR template when one exists, and offers to open the PR with gh. Succinct and behavior-level, never a narration of the diff. Use at PR time.
 argument-hint: "[base branch, default the remote's default branch] [draft] [nocreate]"
 allowed-tools: Read, Grep, Glob, Bash(git status:*), Bash(git diff:*), Bash(git log:*), Bash(git branch:*), Bash(git merge-base:*), Bash(git rev-parse:*), Bash(git ls-files:*), Bash(gh repo view:*), Bash(gh pr view:*), Bash(gh pr create:*)
 disallowed-tools: Task, WebSearch, WebFetch

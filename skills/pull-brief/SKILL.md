@@ -60,7 +60,7 @@ Rank by what forces John to *do* something, then by what he must *know*.
 - **Flag project-invariant violations you happen to see.** For repos with a
   `CLAUDE.md` review checklist (cababble has one), if an incoming commit trips it,
   that is a must-know item — but do not turn this into a full code review. Point at
-  it and offer `/diff-review` or `/code-review` for depth.
+  it and offer `/code-review` for depth.
 - If `CLAUDE.md` / `AGENTS.md` itself changed, read the diff and tell him what the
   new instruction is. That one matters more than it looks — it changes how every
   future AI-assisted change in the repo behaves.
@@ -72,5 +72,5 @@ Automatic briefings only fire in repos on the allowlist
 since solo repos have nothing to brief. `on` adds the current repo and baselines it at
 current `HEAD` so John is not briefed on pre-existing history. `off` removes it.
 Extra git identities that count as "John" live in `~/.claude/pull-brief/identities.txt`
-— add the work GitHub noreply address there when he gets the AlgaeCal repo, or every
+— add the work GitHub noreply address there for any work repo, or every
 one of his own commits will read as somebody else's.

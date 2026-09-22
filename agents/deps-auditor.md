@@ -4,7 +4,7 @@ description: >-
   Audits a repo's DEPENDENCIES for currency and deprecation — reads the manifests and lockfiles,
   web-researches each direct dependency against its official/registry source, and reports which are
   outdated, deprecated, end-of-life, or carry security advisories, plus the specific deprecated APIs
-  to look for in code. Spawned by /audit, but also runs standalone on any repo you want a currency
+  to look for in code. Spawned by /onboard deps, but also runs standalone on any repo you want a currency
   check on. Read-only: reports findings, never edits or upgrades anything.
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 model: inherit
@@ -47,7 +47,7 @@ CHANGELOG. Establish:
 
 ## Return format
 
-Your final text IS the report handed back to the caller (usually the /audit skill). Structure it:
+Your final text IS the report handed back to the caller (usually the /onboard skill). Structure it:
 
 1. **Criticals first** — a ranked list of deprecated / EOL / security-advisory / major-behind deps.
    For each: `name  installed → latest`, status, one line on the risk, the deprecated APIs to grep
